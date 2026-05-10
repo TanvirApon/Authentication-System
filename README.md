@@ -162,5 +162,4 @@ This project was created to practice:
 ## 👨‍💻 Author
 
 ### Firoz Tanvir Hossain
-
-Software Engineer & Backend Developer
+Junior Java / Spring Boot Developer
