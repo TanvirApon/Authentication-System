@@ -65,7 +65,7 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-    // Sample Code for UserDetailsService
+    //
     /*
     @Bean
     public UserDetailsService users(){
