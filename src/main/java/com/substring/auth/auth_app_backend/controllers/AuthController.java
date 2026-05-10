@@ -42,6 +42,12 @@ public class AuthController {
     private final CookieService cookieService;
 
 
+    /*
+      API for Login user here two kinds of followup will be
+     -> Generate JWT token using User details
+     -> Refresh token generated and save it to the databases
+     and also store in the local browser using COOKIE
+     */
     @PostMapping("/login")
     public ResponseEntity<TokenResponse>login(@RequestBody LoginRequest loginRequest, HttpServletResponse response){
        Authentication authenticate=  authenticate(loginRequest);
@@ -73,10 +79,12 @@ public class AuthController {
         cookieService.attachRefreshCookie(response,refreshToken,(int)jwtService.getRefreshTtlSeconds());
         cookieService.addNoStoreHeaders(response);
 
+        //generate access token to return the token response while log in hit
        TokenResponse tokenResponse = TokenResponse.of(accessToken,refreshToken, jwtService.getAccessTtlSeconds(),mapper.map(user,Userdto.class));
        return ResponseEntity.ok(tokenResponse);
     }
 
+    // API for register a new user simply call the register method from the authService class
     @PostMapping("/register")
     public ResponseEntity<Userdto>register(@RequestBody Userdto userdto){
         return ResponseEntity.status(HttpStatus.OK).body(authService.register(userdto));

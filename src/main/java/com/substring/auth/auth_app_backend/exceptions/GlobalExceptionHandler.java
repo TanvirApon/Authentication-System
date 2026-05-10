@@ -17,6 +17,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+ /*
+  Globally Exception Handler
+  Its also been sent to the
+  RestController and show
+  Customize Exception
+  */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
