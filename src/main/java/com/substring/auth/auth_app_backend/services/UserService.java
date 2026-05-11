@@ -1,7 +1,12 @@
 package com.substring.auth.auth_app_backend.services;
 
 import com.substring.auth.auth_app_backend.dtos.Userdto;
+    /*
+      Implemented UserService Interface  where
+      the CURD operation services interfaces are
+      created
 
+    */
 public interface UserService {
 
     Userdto createUser(Userdto userdto);

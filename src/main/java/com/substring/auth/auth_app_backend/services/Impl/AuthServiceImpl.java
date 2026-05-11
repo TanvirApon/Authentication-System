@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
-    private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
+    private final UserService userService; // for using create user method from User Service
+    private final PasswordEncoder passwordEncoder; //  use for saving the password Encoded in database
 
     @Override
     public Userdto register(Userdto userdto) {
         // Encode the passwor before setting ing
         userdto.setPassword(passwordEncoder.encode(userdto.getPassword()));
-        Userdto userdto1 = userService.createUser(userdto);
+        Userdto userdto1 = userService.createUser(userdto); // used ServiceServiceImpl-> create user method
         return userdto1;
     }
 }
